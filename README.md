@@ -1,8 +1,8 @@
 # Household Electricity Load Forecasting
 
-## Stage 1: Data preparation
+## Stage 2: Forecasting methods
 
-Existing cleaning rules, four processed datasets and source information.
+Fixed HGB model, two baselines, chronological evaluation and stored model.
 
 This is a staged publication of an existing completed project. Dates describe upload milestones, not newly performed experiments.
 
@@ -12,5 +12,5 @@ The study uses 2009 only; training is January-August, validation September-Octob
 
 ```bash
 python -m pip install -r requirements.txt
-python data_processing.py --raw /path/to/household_power_consumption.txt
+python main.py
 ```
