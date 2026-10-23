@@ -1,8 +1,8 @@
 # Household Electricity Load Forecasting
 
-## Stage 2: Forecasting methods
+## Stage 3: Results and figures
 
-Fixed HGB model, two baselines, chronological evaluation and stored model.
+Prediction CSVs, validation/test metrics and the two research figures.
 
 This is a staged publication of an existing completed project. Dates describe upload milestones, not newly performed experiments.
 
@@ -14,3 +14,5 @@ The study uses 2009 only; training is January-August, validation September-Octob
 python -m pip install -r requirements.txt
 python main.py
 ```
+
+Test MAE/RMSE (kW): Yesterday Naive 0.707789/1.009972; Weekly Naive 0.629595/0.925265; HGB 0.512628/0.735804. All methods use the same 1464 November-December hours.

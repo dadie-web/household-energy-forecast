@@ -188,6 +188,46 @@ def run(raw=None, date=None):
         if not (day.sum() == 24 and valid[day].all() and masks["test"][day].all()):
             raise ValueError("Date must be a complete valid test day")
         predict(day).to_csv(ROOT / f"results/forecast_{date}.csv")
+    daily = h.load.resample("D").mean().where(h.load.resample("D").count() == 24)
+    fig, ax = plt.subplots(figsize=(10, 3))
+    daily.plot(ax=ax)
+    ax.set(
+        title="Household Electricity Consumption Pattern in 2009",
+        ylabel="Daily mean power (kW)",
+        xlabel="Date",
+    )
+    fig.tight_layout()
+    fig.savefig(ROOT / "figures/figure1_consumption_pattern.png", dpi=200)
+    plt.close(fig)
+    start = None
+    for d in pd.date_range("2009-11-01", "2009-11-24"):
+        idx = pd.date_range(d, periods=168, freq="h")
+        if idx.isin(r.index).all():
+            start = d
+            break
+    if start is None:
+        raise ValueError("No complete November seven-day window")
+    fig, ax = plt.subplots(figsize=(10, 3))
+    r.loc[
+        start : start + pd.Timedelta(hours=167), ["actual", "AI", "yesterday", "weekly"]
+    ].rename(
+        columns={
+            "actual": "Actual",
+            "AI": "HGB",
+            "yesterday": "Yesterday Naive",
+            "weekly": "Weekly Naive",
+        }
+    ).plot(
+        ax=ax, lw=1
+    )
+    ax.set(
+        title="Actual vs Predicted Electricity Load",
+        ylabel="Hourly mean power (kW)",
+        xlabel="Date",
+    )
+    fig.tight_layout()
+    fig.savefig(ROOT / "figures/figure2_forecast_comparison.png", dpi=200)
+    plt.close(fig)
     print(metrics.to_string(index=False))
 
 
