@@ -1,8 +1,8 @@
 # Household Electricity Load Forecasting
 
-## Stage 3: Results and figures
+## Stage 4: Tests and usage
 
-Prediction CSVs, validation/test metrics and the two research figures.
+Existing tests, testing instructions and project usage documentation.
 
 This is a staged publication of an existing completed project. Dates describe upload milestones, not newly performed experiments.
 
