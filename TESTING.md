@@ -51,3 +51,5 @@ python -m unittest discover -s tests -p "test_monthly_protocol.py" -v
 ```
 
 Protocol tests check exact chronological windows, target-month training isolation, all 24 midnight horizons, constant rolling means and baseline hashes. These extension commands do not fit a real model or download data. The original reproducibility test still refits and overwrites original outputs; run it only in a disposable copy.
+
+Integrity checks normalize only text line endings (CRLF to LF), because Git checkouts can use either form. Binary model/image hashes remain byte-exact. A protocol test confirms that text value changes and binary byte changes still fail the hash comparison.

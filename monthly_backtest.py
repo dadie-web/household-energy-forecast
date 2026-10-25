@@ -15,11 +15,19 @@ OUTPUT = ROOT / "results/monthly_backtest"
 METHODS = ["yesterday", "weekly", "AI"]
 
 
+def artifact_sha256(path):
+    """Hash text with LF line endings; preserve every byte of binary artifacts."""
+    content = path.read_bytes()
+    if path.suffix in {".py", ".csv", ".json", ".md"}:
+        content = content.replace(b"\r\n", b"\n")
+    return hashlib.sha256(content).hexdigest()
+
+
 def verify_baseline():
     """Reject changes to the original data, model, configuration and results."""
     manifest = json.loads((ROOT / "baseline_manifest.json").read_text())
     for relative, expected in manifest.items():
-        if hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() != expected:
+        if artifact_sha256(ROOT / relative) != expected:
             raise ValueError(f"Protected baseline file changed: {relative}")
     return manifest
 

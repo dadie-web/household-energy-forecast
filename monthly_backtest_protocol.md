@@ -36,3 +36,7 @@ python -m unittest discover -s tests -p "test_monthly_protocol.py" -v
 ```
 
 The validation command writes `results/monthly_backtest/experiment_plan.csv`, containing date boundaries, sample counts and missing-data exclusions. Monthly forecasts and reports are not part of this protocol release.
+
+## Integrity hashes and Git line endings
+
+The public integrity manifests use SHA256 after converting CRLF to LF in Python, CSV, JSON and Markdown files. All other bytes remain significant; model and image files are hashed without conversion. This accounts for Git checkout line-ending settings without changing values or weakening checks for content changes. The accepted ZIP is kept unchanged locally.

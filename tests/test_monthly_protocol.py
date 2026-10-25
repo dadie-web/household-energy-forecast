@@ -1,6 +1,8 @@
 """Protocol and information-set tests that do not require fitted new models."""
 
+import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 import numpy as np
@@ -8,6 +10,7 @@ import pandas as pd
 
 from main import FEATURES, features
 from monthly_backtest import (
+    artifact_sha256,
     audit_counts,
     fit_experiment,
     load_inputs,
@@ -21,6 +24,21 @@ class ProtocolTests(unittest.TestCase):
     def setUpClass(cls):
         cls.h, cls.config, cls.params = load_inputs()
         cls.x = features(cls.h)
+
+    def test_integrity_hash_handles_git_line_endings(self):
+        with tempfile.TemporaryDirectory() as directory:
+            lf = Path(directory) / "lf.csv"
+            crlf = Path(directory) / "crlf.csv"
+            lf.write_bytes(b"load\n0.5\n")
+            crlf.write_bytes(b"load\r\n0.5\r\n")
+            self.assertEqual(artifact_sha256(lf), artifact_sha256(crlf))
+            crlf.write_bytes(b"load\r\n0.6\r\n")
+            self.assertNotEqual(artifact_sha256(lf), artifact_sha256(crlf))
+            binary_lf = lf.with_suffix(".png")
+            binary_crlf = crlf.with_suffix(".png")
+            binary_lf.write_bytes(b"x\ny")
+            binary_crlf.write_bytes(b"x\r\ny")
+            self.assertNotEqual(artifact_sha256(binary_lf), artifact_sha256(binary_crlf))
 
     def test_exact_window_boundaries(self):
         expected = [
