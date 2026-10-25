@@ -1,0 +1,9 @@
+{
+  "train_start": "2009-01-01",
+  "model_config": "configs/config.json",
+  "experiments": [
+    {"id": "A", "name": "april", "train_end_exclusive": "2009-04-01", "forecast_start": "2009-04-01", "forecast_end_exclusive": "2009-05-01"},
+    {"id": "B", "name": "july", "train_end_exclusive": "2009-07-01", "forecast_start": "2009-07-01", "forecast_end_exclusive": "2009-08-01"},
+    {"id": "C", "name": "october", "train_end_exclusive": "2009-10-01", "forecast_start": "2009-10-01", "forecast_end_exclusive": "2009-11-01"}
+  ]
+}

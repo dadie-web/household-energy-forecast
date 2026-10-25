@@ -26,7 +26,7 @@ Synthetic fixtures are used only in tests. Production aggregation requires 54 va
 
 ## Expected results
 
-The command should exit with status zero and report four passing tests. A nonzero exit status indicates a test failure or error.
+The command should exit with status zero and report four passing original tests when selected with `-p test_project.py`. A nonzero exit status indicates a test failure or error.
 
 November-December evaluation uses 1464 common timestamps. Expected MAE/RMSE values rounded to six decimals are 0.707789/1.009972 kW for Yesterday Naive, 0.629595/0.925265 kW for Weekly Naive and 0.512628/0.735804 kW for HistGradientBoosting.
 
@@ -41,3 +41,13 @@ python -m unittest discover -s tests -v -k test_clean_units_dates -k test_no_fut
 ```
 
 This selection checks preprocessing, all 24 forecast horizons and the included outputs without downloading raw data or rerunning training.
+
+
+## Published extension checks
+
+```bash
+python monthly_backtest.py --validate-only
+python -m unittest discover -s tests -p "test_monthly_protocol.py" -v
+```
+
+Protocol tests check exact chronological windows, target-month training isolation, all 24 midnight horizons, constant rolling means and baseline hashes. These extension commands do not fit a real model or download data. The original reproducibility test still refits and overwrites original outputs; run it only in a disposable copy.

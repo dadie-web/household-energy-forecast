@@ -1,0 +1,4 @@
+id,name,train_end_exclusive,forecast_start,forecast_end_exclusive,train_start,train_planned_hours,train_invalid_target_hours,train_history_only_excluded_hours,train_valid_hours,train_excluded_hours,forecast_planned_hours,forecast_invalid_target_hours,forecast_history_only_excluded_hours,forecast_valid_hours,forecast_excluded_hours
+A,april,2009-04-01,2009-04-01,2009-05-01,2009-01-01,2160,3,504,1653,507,720,0,0,720,0
+B,july,2009-07-01,2009-07-01,2009-08-01,2009-01-01,4344,59,688,3597,747,744,0,0,744,0
+C,october,2009-10-01,2009-10-01,2009-11-01,2009-01-01,6552,74,856,5622,930,744,0,0,744,0
