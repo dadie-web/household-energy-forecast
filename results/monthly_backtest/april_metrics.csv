@@ -1,0 +1,4 @@
+method,MAE_kW,RMSE_kW,n,id,name,train_end_exclusive,forecast_start,forecast_end_exclusive,train_start,train_planned_hours,train_invalid_target_hours,train_history_only_excluded_hours,train_valid_hours,train_excluded_hours,forecast_planned_hours,forecast_invalid_target_hours,forecast_history_only_excluded_hours,forecast_valid_hours,forecast_excluded_hours
+yesterday,0.6177524999999999,0.859660954622297,720,A,april,2009-04-01,2009-04-01,2009-05-01,2009-01-01,2160,3,504,1653,507,720,0,0,720,0
+weekly,0.6024253144955299,0.8589001360711628,720,A,april,2009-04-01,2009-04-01,2009-05-01,2009-01-01,2160,3,504,1653,507,720,0,0,720,0
+AI,0.4889538971118081,0.6879203049032183,720,A,april,2009-04-01,2009-04-01,2009-05-01,2009-01-01,2160,3,504,1653,507,720,0,0,720,0

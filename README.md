@@ -16,6 +16,7 @@ Use Python 3.12:
 python -m pip install -r requirements.txt
 python monthly_backtest.py --validate-only
 python -m unittest discover -s tests -p "test_monthly_protocol.py" -v
+python -m unittest discover -s tests -p "test_monthly_outputs.py" -v
 ```
 
 Protocol validation uses saved hourly data without fitting models or downloading raw measurements. `results/monthly_backtest/experiment_plan.csv` records sample counts and exclusions. To rerun a monthly experiment, use `python monthly_backtest.py --experiment april` (or `july`/`october`); this trains the selected monthly model and overwrites its monthly outputs. `python main.py` reruns the original experiment. The existing `python data_processing.py --raw /path/to/file` utility remains available for preprocessing. See [TESTING.md](TESTING.md).
@@ -24,6 +25,6 @@ Protocol validation uses saved hourly data without fitting models or downloading
 
 Original final-test MAE/RMSE: Yesterday Naive 0.707789/1.009972; Weekly Naive 0.629595/0.925265; HGB 0.512628/0.735804 kW. All methods use the same 1464 November-December hours.
 
-The current extension release contains the protocol and its validation tests; monthly prediction files will follow separately.
+April HGB MAE/RMSE: 0.488954/0.687920 kW on 720 hours.
 
 Dependencies are listed in requirements.txt; upstream copyright and license terms apply.
