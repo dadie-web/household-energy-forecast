@@ -1,0 +1,46 @@
+{
+  "id": "B",
+  "name": "july",
+  "train_end_exclusive": "2009-07-01",
+  "forecast_start": "2009-07-01",
+  "forecast_end_exclusive": "2009-08-01",
+  "train_start": "2009-01-01",
+  "train_planned_hours": 4344,
+  "train_invalid_target_hours": 59,
+  "train_history_only_excluded_hours": 688,
+  "train_valid_hours": 3597,
+  "train_excluded_hours": 747,
+  "forecast_planned_hours": 744,
+  "forecast_invalid_target_hours": 0,
+  "forecast_history_only_excluded_hours": 0,
+  "forecast_valid_hours": 744,
+  "forecast_excluded_hours": 0,
+  "fit_first_timestamp": "2009-01-08 00:00:00",
+  "fit_last_timestamp": "2009-06-30 23:00:00",
+  "fit_sample_count": 3597,
+  "parameters": {
+    "random_state": 42,
+    "max_iter": 150,
+    "max_leaf_nodes": 15,
+    "learning_rate": 0.05,
+    "l2_regularization": 1.0,
+    "early_stopping": false
+  },
+  "features": [
+    "hour",
+    "weekday",
+    "weekend",
+    "month",
+    "yesterday",
+    "weekly",
+    "mean24",
+    "mean168"
+  ],
+  "run_completed_utc": "2026-10-25T01:48:26.863767+00:00",
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1"
+  }
+}

@@ -1,0 +1,6 @@
+actual_load_band_kW,hours
+below_0.3,201
+0.3_to_below_0.6,302
+0.6_to_below_1,92
+1_to_below_2,139
+2_and_above,10

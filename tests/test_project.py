@@ -64,7 +64,8 @@ class Checks(unittest.TestCase):
         self.assertTrue(np.isfinite(r.select_dtypes("number")).all().all())
         m = pd.read_csv(ROOT / "results/metrics.csv")
         self.assertTrue((m.n == len(r)).all())
-        self.assertEqual(len(list((ROOT / "figures").glob("*.png"))), 2)
+        self.assertTrue((ROOT / "figures/figure1_consumption_pattern.png").exists())
+        self.assertTrue((ROOT / "figures/figure2_forecast_comparison.png").exists())
 
     def test_reproducibility(self):
         """Repeat the experiment and compare forecast values within tolerance."""
