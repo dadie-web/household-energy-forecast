@@ -30,4 +30,6 @@ April HGB MAE/RMSE: 0.488954/0.687920 kW on 720 hours.
 
 July HGB MAE/RMSE: 0.495760/0.610989 kW on 744 hours. MAE is higher than both persistence baselines, although RMSE is slightly lower. Mean actual/predicted loads are 0.618/0.935 kW; 491 of 503 low-load hours are overestimated. HGB wins daily MAE against Yesterday Naive on 10 days and loses on 21.
 
+October HGB MAE/RMSE: 0.447173/0.651662 kW on 744 hours. Results for April, July, October and the earlier final test are compared in results/monthly_backtest/period_comparison_metrics.csv and figures/figure3_monthly_performance.png.
+
 Dependencies are listed in requirements.txt; upstream copyright and license terms apply.
