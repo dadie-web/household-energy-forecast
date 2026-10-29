@@ -26,16 +26,20 @@ Each forecast CSV retains every scheduled hour with `timestamp`, `forecast_origi
 
 Training size and calendar context change together. Differences cannot be attributed solely to season or to more training data. A month's lower aggregate error does not establish accurate prediction of every peak. All measured results, including any loss to a persistence baseline, must be retained.
 
-## Protocol checks
+## Commands and order
 
-Use Python 3.12 and install `requirements.txt`. These commands use the included hourly data and do not fit a model or download data:
+Install `requirements.txt` once in Python 3.12. From the project directory:
 
 ```bash
 python monthly_backtest.py --validate-only
-python -m unittest discover -s tests -p "test_monthly_protocol.py" -v
+python monthly_backtest.py --experiment april
+python monthly_backtest.py --experiment july
+python monthly_backtest.py --experiment october
+python july_analysis.py
+python monthly_reporting.py
 ```
 
-The validation command writes `results/monthly_backtest/experiment_plan.csv`, containing date boundaries, sample counts and missing-data exclusions. Monthly forecasts and reports are not part of this protocol release.
+The complete extension is reproduced by `python monthly_backtest.py --experiment all --report`. Outputs are under `results/monthly_backtest/`; neither this command nor the report-only command retrains the original November-December model.
 
 ## Integrity hashes and Git line endings
 

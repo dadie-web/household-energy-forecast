@@ -12,6 +12,6 @@
   "figures/figure1_consumption_pattern.png": "8c1aaa672ba411cfcbe06b4a9ec083263ac99997badea7e9677c2ae1f16bf68f",
   "figures/figure2_forecast_comparison.png": "076514e73c012de78e5db351baf0f87109685fd9d4b5156884e8642dc16a3db2",
   "configs/config.json": "76000cf17395f8f47f987b4608cdfd1ddb5f23a52b3c577ff6527f1ad8edf916",
-  "main.py": "e93fb6545c5e82d541281ee4f5fca7d26a9257ba9536a4f99524e9cbe9dc7698",
+  "main.py": "355730f9e393aad78046703ec2b2051b412df72a67d3a265e67fb5daa72583ad",
   "data_processing.py": "456ee617755177335008d46ddb0ab35bb75c6a9a2843afc9bad1887d4e19dddd"
 }

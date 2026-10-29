@@ -228,6 +228,9 @@ def run(raw=None, date=None):
     fig.tight_layout()
     fig.savefig(ROOT / "figures/figure2_forecast_comparison.png", dpi=200)
     plt.close(fig)
+    from reporting import report
+
+    report(metrics, q, start)
     print(metrics.to_string(index=False))
 
 
